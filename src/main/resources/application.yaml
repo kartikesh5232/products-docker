@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/security?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: kartikesh
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+
+server:
+  port: 9002
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+
