@@ -40,7 +40,6 @@ public class productService {
     @Transactional
     public List<product> getAllProducts() {
         List<product> products = productRepository.findAll();
-
         return products.stream()
                 .map(prod -> {
                     product newProd = new product();
@@ -55,6 +54,23 @@ public class productService {
                     return newProd;
                 })
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public product getProducts(Long id) {
+       Optional<product> prod = productRepository.findById(id);
+
+
+                    product newProd = new product();
+                    newProd.setId(prod.get().getId());
+                    newProd.setTitle(prod.get().getTitle());
+                    newProd.setName(prod.get().getName());
+                    newProd.setType(prod.get().getType());
+                    newProd.setDescription(prod.get().getDescription());
+                    newProd.setPrice(prod.get().getPrice());
+                    newProd.setCategory(prod.get().getCategory());
+                    newProd.setImageData(ImageUtil.decompressImage(prod.get().getImageData()));
+                    return newProd;
 
 
     }
@@ -71,5 +87,3 @@ public class productService {
     }
 
 }
-
-

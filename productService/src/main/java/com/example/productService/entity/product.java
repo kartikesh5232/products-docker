@@ -38,3 +38,4 @@ public class product {
     @Column(name = "imageData", length = 100000)
     private byte[] imageData;
 }
+

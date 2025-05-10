@@ -1,5 +1,4 @@
 
-
 package com.example.productService.controller;
 
 import com.example.productService.entity.product;
@@ -10,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.Base64Utils;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,7 +18,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/image")
-@CrossOrigin("*")
 public class productController {
 
     @Autowired
@@ -51,6 +49,19 @@ public class productController {
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.valueOf("image/png"))
                 .body(image);
+    }
+
+    @GetMapping("/getproduct/{id}")
+    public ResponseEntity<?> getImageInfoByName(@PathVariable("id") Long id) {
+        System.out.println("getImageInfoByName");
+      product prod = prodService.getProducts( id);
+//        byte[] image = products.get(1).getImageData();
+//        return ResponseEntity.status(HttpStatus.OK)
+//              .contentType(MediaType.valueOf("image/png"))
+//                .body(image);
+
+        return ResponseEntity.status(HttpStatus.OK).body(prod);
+
     }
 
     @GetMapping("/getallproduct")
