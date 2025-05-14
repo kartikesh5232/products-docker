@@ -3,6 +3,7 @@ package com.example.productService.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Entity
 @Table(name = "product")
 @Builder
