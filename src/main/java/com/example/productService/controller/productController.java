@@ -29,6 +29,7 @@ public class productController {
                                          @RequestParam("category") String category
     ) throws IOException {
 
+
         productUploadResponse response = prodService.uploadProduct(file,title, description, price, category);
 
 
