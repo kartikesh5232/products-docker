@@ -3,6 +3,7 @@ package com.example.productService.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Entity
 @Table(name = "product")
 @Builder
@@ -18,7 +19,6 @@ public class product {
 
     @Column(name = "title", length = 100)
     private String title;
-
     @Column(name = "name", length = 100)
     private String name;
 
