@@ -31,6 +31,7 @@ public class productController {
 
         productUploadResponse response = prodService.uploadProduct(file,title, description, price, category);
 
+
         return ResponseEntity.status(HttpStatus.OK)
                 .body(response);
     }
